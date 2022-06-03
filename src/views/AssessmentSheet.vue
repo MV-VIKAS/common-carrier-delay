@@ -1,0 +1,600 @@
+<template>
+  <v-app>
+    <!-- ----------------------COMMON CARRIER DELAY --------------------------->
+    <template>
+      <v-title>
+        <h2 class="pageHeader">Add Details to Assessment Sheet</h2>
+      </v-title>
+      <!-- -------------------BASIC DETAILS-------------------------------- -->
+      <div class="container1">
+        <div class="header" @click="show1 = !show1">
+          <div>Basic Details</div>
+          <v-spacer></v-spacer>
+
+          <v-icon v-show="show1" color="#ffffff" class="white--text"
+            >mdi-minus-box</v-icon
+          >
+          <v-icon v-show="!show1" color="#ffffff" class="white--text"
+            >mdi-plus-box</v-icon
+          >
+        </div>
+        <div v-show="show1">
+          <v-form>
+            <!-- ------------------------------ROW -1-------------------------------------- -->
+            <v-layout wrap class="pt-4 form-group-container">
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Settlement Type </b>
+                  <span class="required">*</span>
+                  
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Select"
+                  solo
+                  dense
+                  outlined
+                ></v-select>
+              </v-flex>
+
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Claim Payment Type </b>
+                  <span class="required">*</span>
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Select"
+                  solo
+                  dense
+                  outlined
+                ></v-select>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Transaction Type </b>
+                  <span class="required">*</span>
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Select"
+                  solo
+                  dense
+                  outlined
+                ></v-select>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Country Name </b>
+                  <span class="required">*</span>
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Select"
+                  solo
+                  dense
+                  outlined
+                ></v-select>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Currency Name </b>
+                  <span class="required">*</span>
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Select"
+                  solo
+                  dense
+                  outlined
+                ></v-select>
+              </v-flex>
+              <v-flex lg2 class="form-group mx-6  ">
+                <label class="form-label">
+                  <b>Rate Of Exchange </b>
+                  <span class="required">*</span>
+                </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                  disabled
+                ></v-text-field>
+              </v-flex>
+
+
+      <v-flex class="form-group mx-6" lg2>
+                <label class="form-label"> 
+                  <b>Rate Of Exchange Date </b> 
+                <span class="required">*</span>
+                </label>
+                <v-text-field
+                  class="input"
+                  placeholder="12/01/2021"
+                  solo
+                  dense
+                  outlined
+                >
+                <template v-slot:prepend-inner class="mx-0">
+                    <v-icon class="iconstyle">mdi-calendar</v-icon>
+                  </template>
+                </v-text-field>
+              </v-flex>
+
+
+              <v-flex lg2 class="form-group mx-3">
+                <label class="form-label">
+                  <b>ROE Updated Manually </b>
+                  <span class="required">*</span>
+                </label>
+                <v-select
+                  class="input"
+                  placeholder="Preselected List Item"
+                  solo
+                  dense
+                  outlined
+                  disabled
+                ></v-select>
+              </v-flex>
+            </v-layout>
+          </v-form>
+        </div>
+      </div>
+    </template>
+
+    <template>
+      <div class="container1">
+        <div class="header" @click="show2 = !show2">
+          <div>Invoice Details</div>
+          <v-spacer></v-spacer>
+          <v-icon v-show="show2" color="#ffffff" class="white--text"
+            >mdi-minus-box</v-icon
+          >
+          <v-icon v-show="!show2" color="#ffffff" class="white--text"
+            >mdi-plus-box</v-icon
+          >
+        </div>
+
+        <div v-show="show2">
+          <div class="ma-3">
+            <b>Add Invoice Details</b>(At Least One Row Is Mandatory)
+          </div>
+
+          <!-- ------------------------------------Invoice Details--------------------- -->
+          <v-card elevation="2" class="ma-3" flat>
+            <v-data-table
+              elevation="2"
+              id="tabl"
+              disable-filtering
+              disable-pagination
+              disable-sort
+              hide-default-footer
+              :items="item"
+              :headers="headers"
+            >
+              <template v-slot:[`item.invoice`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-6"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+
+              <template v-slot:[`item.invoicedate`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-6"
+                  style="align-text: center;"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+
+              <template v-slot:[`item.invoicedetails`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-6"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+
+              <template v-slot:[`item.invoiceamount`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-6"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+
+              <template v-slot:[`item.action`]="{ item }">
+                <v-icon class="red--text">mdi-delete</v-icon>{{ item.text }}
+              </template>
+            </v-data-table>
+          </v-card>
+
+          <div class="add-row-icon">
+            <span><v-icon class="white green--text"> mdi-plus </v-icon></span>
+            <span class="white green--text"> Add Row </span>
+          </div>
+
+          <!-- -------------------------total invoice amount---------------------------- -->
+          <v-form>
+            <v-layout wrap class="form-group-container">
+              <!-- ------------------------------ROW -1 ------------------------------ -->
+              <v-flex lg2 class="form-group">
+                <label class="form-label "  >
+                  <b>Total Invoice Amount</b>
+                </label>
+                <v-text-field
+                  class="input"
+                label="Enter..."
+                  solo
+                  dense
+                  outlined
+                  disabled
+                >
+                </v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-form>
+        </div>
+      </div>
+    </template>
+    <!-- -----------------------------Amount Details--------------------------------------------- -->
+    <template>
+      <div class="container1">
+        <div class="header" @click="show3 = !show3">
+          <div>Amount Details</div>
+          <v-spacer></v-spacer>
+          <v-icon v-show="show3" color="#ffffff" class="white--text"
+            >mdi-minus-box</v-icon
+          >
+          <v-icon v-show="!show3" color="#ffffff" class="white--text"
+            >mdi-plus-box</v-icon
+          >
+        </div>
+
+        <div v-show="show3">
+          <v-form>
+            <v-layout wrap class="pt-4 form-group-container">
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Time Deductible(In Hours)</b>
+                </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label"> <b>Deductible Amount</b> </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex class="form-group">
+                <label class="form-label"> <b>Copay%</b> </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Claimed Amount</b>
+                </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+              <v-flex class="form-group">
+                <label class="form-label">
+                  <b>Amount Payable</b>
+                </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+
+            <v-layout wrap class="form-group-container">
+              <v-flex class="form-group lg2">
+                <label class="form-label"><b>Net Payable</b> </label>
+                <v-text-field
+                  class="input"
+                  placeholder="Enter..."
+                  solo
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-form>
+        </div>
+      </div>
+    </template>
+
+    <!-- -----------------------------Non- payable Expanses--------------------------------------------- -->
+    <template>
+      <div class="container1">
+        <div class="header" @click="show4 = !show4">
+          <div>Non Payable Expenses</div>
+          <v-spacer></v-spacer>
+          <v-icon v-show="show4" color="#ffffff" class="white--text"
+            >mdi-minus-box</v-icon
+          >
+          <v-icon v-show="!show4" color="#ffffff" class="white--text"
+            >mdi-plus-box</v-icon
+          >
+        </div>
+  
+        <div v-show="show4">
+          <v-form>
+            <v-layout wrap class="pt-4 form-group-container">
+              <v-flex
+                lg2
+                class="form-group my-2"
+                style="border: 1px solid grey"
+              >
+                <v-card>
+                  <v-checkbox
+                    class="input"
+                    label="Non Payable Expense"
+                    solo
+                    dense
+                    outlined
+                  >
+                  </v-checkbox>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-form>
+          <!-- ------------------------------------NON payable Expense table--------------------- -->
+          <v-card elevation="2" class="mx-2 mt-5" flat >
+            <v-data-table
+              elevation="2"
+              id="table"
+              disable-filtering
+              disable-pagination
+              disable-sort
+              hide-default-footer
+              :items="item"
+              :headers="headers"
+            >
+              <template v-slot:[`item.invoice`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-4"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+              <template v-slot:[`item.invoicedate`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-4"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+              <template v-slot:[`item.invoicedetails`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-4"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+              <template v-slot:[`item.invoiceamount`]="{ item }">
+                <v-text-field
+                  label="1000"
+                  outlined
+                  dense
+                  class="mt-4"
+                  style="align-text: center"
+                ></v-text-field
+                >{{ item.text }}
+              </template>
+              <template v-slot:[`item.action`]="{ item }">
+                <v-icon class="red--text">mdi-delete</v-icon>{{ item.text }}
+              </template>
+            </v-data-table>
+          </v-card>
+          <div class="add-row-icon">
+            <span><v-icon class="white green--text"> mdi-plus </v-icon></span>
+            <span class="white green--text"> Add Row </span>
+          </div>
+
+          <!-- -------------------------total non payable amount---------------------------- -->
+          <v-form>
+            <v-layout wrap class="pt-4 form-group-container">
+              <!-- ------------------------------ROW -1 ------------------------------ -->
+              <v-flex lg2 class="form-group ma-2">
+                <label class="form-label ">
+                  <b>Total Non-Payable Amount</b>
+                </label>
+                <v-text-field
+                  class="input"
+                  label="Enter"
+                  solo
+                  dense
+                  outlined
+                  disabled
+                >
+                </v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-form>
+        </div>
+      </div>
+    </template>
+    <!-- ----------------------BUTTONS SECTION-------------------------------- -->
+    <!-- --------------------------BUTTONS---------------------------------- -->
+    <v-card flat>
+      <v-layout class="py-4">
+        <v-btn class="red--text mr-4 btnDanger" outlined
+          ><v-icon>mdi-backspace-outline</v-icon
+          ><v-divider vertical class="red mx-2 lighten-4"></v-divider>
+          <span class="textField">Reset</span></v-btn
+        >
+        <v-spacer></v-spacer>
+        <v-btn class="red--text mr-4 btnDanger" outlined
+          ><v-icon>mdi-backspace-outline</v-icon
+          ><v-divider vertical class="red mx-2 lighten-4"></v-divider>
+          <span class="textField">Cancel</span></v-btn
+        >
+        <router-link to="/assessmentDetails" style="text-decoration: none">
+          <v-btn class="white--text btnSuccess" color="#23b1a9"
+            ><v-icon class="icon">mdi-arrow-right-circle</v-icon
+            ><v-divider vertical class="green mx-2 lighten-4"></v-divider>
+            <span class="textField">Submit</span></v-btn
+          >
+        </router-link>
+      </v-layout>
+    </v-card>
+  </v-app>
+</template>
+
+<script>
+export default {
+  components: {},
+  data() {
+    return {
+      show1: false,
+      show2: false,
+      show3: false,
+      show4: false,
+      headers: [
+        {
+          text: "Serial Number",
+          align: "center",
+          value: "serialn",
+          class: " white--text",
+          width: 100,
+        },
+        {
+          text: "Invoice Number",
+          value: "invoice",
+          class: " white--text",
+          align: "center",
+          width: 150,
+        },
+        {
+          text: "Invoice Date",
+          value: "invoicedate",
+          class: " white--text",
+          width: 250,
+          align: "center",
+        },
+        {
+          text: "Invoice Details",
+          value: "invoicedetails",
+          class: " white--text",
+          width: 350,
+          align: "center",
+        },
+        {
+          text: "Invoice Amount",
+          value: "invoiceamount",
+          class: " white--text",
+          width: 150,
+          align: "center",
+        },
+        {
+          text: "Action",
+          value: "action",
+          class: " white--text",
+          width: 150,
+          align: "center",
+        },
+      ],
+      item: [
+        {
+          serialn: "002434234",
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style>
+/* table */
+#table-head {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+#table-header {
+  background-color: lightseagreen;
+}
+th {
+  border: 0.2px solid grey;
+  color: white;
+}
+td {
+  border: 0.2px solid grey;
+}
+.table-input {
+  border: 1px solid grey;
+  margin-left: 30px;
+  height: 30px;
+  width: 150px;
+}
+
+.invoice-details {
+  width: 450px;
+}
+.invoice-details-input {
+  border: 1px solid;
+  margin-left: 15px;
+  height: 30px;
+  width: 400px;
+}
+.add-row-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+
+
+</style>

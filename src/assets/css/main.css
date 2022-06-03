@@ -1,0 +1,129 @@
+* {
+  text-transform: none ;
+  letter-spacing: 0px;
+}
+
+.input {
+  border-radius: 0px;
+}
+.form-group {
+  width: 220px ;
+  margin: 0px 12px;
+}
+.form-label{
+    font-size: 10px;
+    height: 13px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.header-label-basic{
+    width: 82px;
+    height: 17px;
+    font-size: 14px;
+}
+.header-label-accident{
+    width: 103px;
+    height: 17px;
+    font-size: 14px;
+}
+.claimHeader{
+    background-color: #F7F7F7;
+    border:1px solid #EFEEF4
+}
+.claimNumber{
+    color:#10242B;
+    font-size: 16px;
+    font-weight: bold;
+}
+.newClaim{
+    color:#D1121B;
+    font-size:16px;
+    font-weight: bold;
+}
+.viewDetails{
+    color:#23B1A9;
+    font-size: 12px;
+}
+.pageHeader {
+  color: #10242b;
+  font-size: 16px;  
+}
+
+#activeBtn{
+    background-color: #1EBBD9;
+    color:#FFFFFF;
+    font-size: 16px;
+}
+#notActiveBtn{
+    background-color: #FFFFFF;
+    border:1px solid #B5C1C4;
+    color:#10242B;
+    font-size: 16px;
+    letter-spacing: 0;
+    font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #1ebbd9;
+  color: #ffffff;
+  padding: 20px;
+  height: 36px;
+}
+
+.btnDanger {
+  box-shadow: 0px 2px 2px #d1121b3d;
+  border: 1px solid #d1121b;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #ffffff;
+ 
+}
+ .icon{
+  height:18px;
+  width: 18px;
+}
+.btnSuccess {
+  font-size: 14px;  
+box-shadow: 0px 3px 4px #23B1A93D;
+border-radius: 4px;
+
+}
+
+.textLabel{
+    font-size: 10px;
+}
+/* dropdown */
+.container1 {
+  margin-top: 1px;
+  border: 1px solid #c1c8cc;
+}
+
+/* input icons */
+.iconstyle {
+  border-right: 1px solid grey;
+  background-color:#F7F7F7;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.required{
+  font-size: 10px;
+  color: #D1121B;
+  font-weight: bold;
+  height: 13px;
+}
+
+/* table */
+.v-data-table-header tr {
+  background-color: #23b1a9;
+}
+.v-data-table-header tr th {
+  border: 1px solid #c1c8cc;
+}
+.v-data-table__wrapper table tbody tr td {
+  border-left: 1px solid #c1c8cc;
+  height: 20px;
+}
