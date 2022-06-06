@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      <div class="d-flex lighten-3 pt-2 claimHeader">
-        <p class="claimNumber align-center mt-3 mx-5">
+      <div class=" lighten-3   claimHeader">
+        <p class="claimNumber mt-3 mx-5">
           Claim Number - 4340002739
         </p>
         <v-divider vertical class="my-2"></v-divider>
         <p class="newClaim mt-3 mx-5">NEW CLAIM</p>
         <v-spacer></v-spacer>
-        <p class="viewDetails mt-3 mr-5">View Details</p>
+       <p class="viewDetails  mt-3 mr-5"><b>View Details</b></p>
       </div>
     </div>
     <div class="mt-3">
@@ -30,12 +30,12 @@
     <template>
       <div class="container1">
         <div class="header" @click="hide = !hide">
-          <span class="header-label-basiic">Basic Details </span
+          <span class="header-label-basic">Basic Details </span
           ><v-spacer></v-spacer>
-          <v-icon class="white--text" color="#ffffff" v-if="hide"
+          <v-icon color="#ffffff" v-if="hide"
             >mdi-plus-box</v-icon
           >
-          <v-icon class="white--text" color="#ffffff" v-if="!hide"
+          <v-icon color="#ffffff" v-if="!hide"
             >mdi-minus-box</v-icon
           >
         </div>
@@ -99,17 +99,42 @@
               </v-flex>
               <v-flex class="form-group">
                 <label class="form-label"> <b>Schedule Date</b> </label>
-                <v-text-field
-                  class="input"
-                  placeholder="DD/MM/YYYY"
-                  solo
-                  dense
-                  outlined
+              <v-menu
+                  ref="menu1"
+                  v-model="menu1"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
                 >
-                  <template v-slot:prepend-inner class="mx-0">
-                    <v-icon class="iconstyle">mdi-calendar</v-icon>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="date1"
+                      placeholder="DD/MM/YYYY"
+                      class="form-control rounded-0"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                      solo
+                      dense
+                      outlined
+                    >
+                      <template v-slot:prepend-inner>
+                        <v-icon class="iconstyle"> mdi-calendar </v-icon>
+                      </template>
+                    </v-text-field>
                   </template>
-                </v-text-field>
+                  <v-date-picker v-model="date1" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu1 = false">
+                      Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu1.save(date1)">
+                      OK
+                    </v-btn>
+                  </v-date-picker>
+                </v-menu>
               </v-flex>
 
               <v-flex class="form-group">
@@ -128,17 +153,42 @@
               </v-flex>
               <v-flex class="form-group">
                 <label class="form-label"> <b>Actual Date</b> </label>
-                <v-text-field
-                  class="input"
-                  placeholder="DD/MM/YYYY"
-                  solo
-                  dense
-                  outlined
+               <v-menu
+                  ref="menu2"
+                  v-model="menu2"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
                 >
-                  <template v-slot:prepend-inner class="mx-0">
-                    <v-icon class="iconstyle">mdi-calendar</v-icon>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="date2"
+                      placeholder="DD/MM/YYYY"
+                      class="form-control rounded-0"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                      solo
+                      dense
+                      outlined
+                    >
+                      <template v-slot:prepend-inner>
+                        <v-icon class="iconstyle"> mdi-calendar </v-icon>
+                      </template>
+                    </v-text-field>
                   </template>
-                </v-text-field>
+                  <v-date-picker v-model="date2" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu2 = false">
+                      Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu2.save(date2)">
+                      OK
+                    </v-btn>
+                  </v-date-picker>
+                </v-menu>
               </v-flex>
               <v-flex class="form-group">
                 <label class="form-label"> <b>Actual Time</b> </label>
@@ -164,7 +214,9 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-              <v-flex class="form-group lg2">
+            </v-layout >
+             <v-layout wrap class="pb-2 form-group-container" style="width:290px">
+             <v-flex class="form-group " >
                 <label class="form-label">
                   <b>Is This An Accident Case?</b></label
                 >
@@ -176,7 +228,7 @@
                   outlined
                 ></v-select>
               </v-flex>
-            </v-layout>
+              </v-layout>
           </v-form>
         </template>
       </div>
@@ -185,7 +237,7 @@
     <!-- ----------------------------------Accident details----------------------------------- -->
     <template>
       <div class="container1">
-        <div class="header" @click="hide1 = !hide1">
+        <div class="header"  @click="hide1 = !hide1">
           <span class="header-label-accident">Accident Details</span
           ><v-spacer></v-spacer>
           <v-icon class="white--text" color="#ffffff" v-if="hide1"
@@ -272,17 +324,42 @@
                   <label class="form-label">
                     <b>FIR Date</b> <span class="required">*</span></label
                   >
-                  <v-text-field
-                    class="input"
-                    placeholder="DD/MM/YYYY"
-                    solo
-                    dense
-                    outlined
-                  >
-                    <template v-slot:prepend-inner class="mx-0">
-                      <v-icon class="iconstyle">mdi-calendar</v-icon>
-                    </template>
-                  </v-text-field>
+                  <v-menu
+                  ref="menu3"
+                  v-model="menu3"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="date3"
+                      placeholder="DD/MM/YYYY"
+                      class="form-control rounded-0"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                      solo
+                      dense
+                      outlined
+                    >
+                      <template v-slot:prepend-inner>
+                        <v-icon class="iconstyle"> mdi-calendar </v-icon>
+                      </template>
+                    </v-text-field>
+                  </template>
+                  <v-date-picker v-model="date3" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu3 = false">
+                      Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu3.save(date3)">
+                      OK
+                    </v-btn>
+                  </v-date-picker>
+                </v-menu>
                 </v-flex>
                 <v-flex class="form-group">
                   <label class="form-label"
@@ -392,7 +469,7 @@
               </v-layout>
                <v-layout wrap class="form-group-container">
               <v-flex class="form-group ">
-                <label class="form-label"> <b>Email ID</b></label>
+                <label class="form-label "> <b>Email ID</b></label>
                 <v-text-field
                   class="input"
                   placeholder="Enter..."
@@ -400,7 +477,7 @@
                   dense
                   outlined
                 >
-                  <template v-slot:prepend-inner class="mx-0">
+                  <template v-slot:prepend-inner class="mx-0 ">
                     <v-icon class="iconstyle">mdi-email</v-icon>
                   </template>
                 </v-text-field>
@@ -481,6 +558,9 @@ export default {
     return {
       hide1: false,
       hide: false,
+      date1: "",
+      date2:"",
+      date3:""
     };
   },
 };

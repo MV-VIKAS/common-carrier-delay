@@ -1,11 +1,12 @@
 <template>
   <v-app>
     <!-- ----------------------COMMON CARRIER DELAY --------------------------->
+
+    <v-title>
+      <h2 class="pageHeader pb-4">Add Details to Assessment Sheet</h2>
+    </v-title>
+    <!-- -------------------BASIC DETAILS-------------------------------- -->
     <template>
-      <v-title>
-        <h2 class="pageHeader">Add Details to Assessment Sheet</h2>
-      </v-title>
-      <!-- -------------------BASIC DETAILS-------------------------------- -->
       <div class="container1">
         <div class="header" @click="show1 = !show1">
           <div>Basic Details</div>
@@ -26,7 +27,6 @@
                 <label class="form-label">
                   <b>Settlement Type </b>
                   <span class="required">*</span>
-                  
                 </label>
                 <v-select
                   class="input"
@@ -89,7 +89,10 @@
                   outlined
                 ></v-select>
               </v-flex>
-              <v-flex lg2 class="form-group mx-6  ">
+                   </v-layout>
+                   <!----------------------- ROW 2---------------- -->
+            <v-layout wrap class=" form-group-container" style="width:875px">
+              <v-flex  class="form-group">
                 <label class="form-label">
                   <b>Rate Of Exchange </b>
                   <span class="required">*</span>
@@ -103,28 +106,53 @@
                   disabled
                 ></v-text-field>
               </v-flex>
-
-
-      <v-flex class="form-group mx-6" lg2>
-                <label class="form-label"> 
-                  <b>Rate Of Exchange Date </b> 
-                <span class="required">*</span>
+       
+              
+              <v-flex class="form-group "  >
+                <label class="form-label">
+                  <b>Rate Of Exchange Date </b>
+                  <span class="required">*</span>
                 </label>
-                <v-text-field
-                  class="input"
-                  placeholder="12/01/2021"
-                  solo
-                  dense
-                  outlined
+                <v-menu
+                  ref="menu"
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
                 >
-                <template v-slot:prepend-inner class="mx-0">
-                    <v-icon class="iconstyle">mdi-calendar</v-icon>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="date"
+                      placeholder="12/01/2021"
+                      class="form-control rounded-0"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                      solo
+                      dense
+                      outlined
+                      disabled
+                    >
+                      <template v-slot:prepend-inner>
+                        <v-icon class="iconstyle"> mdi-calendar </v-icon>
+                      </template>
+                    </v-text-field>
                   </template>
-                </v-text-field>
+                  <v-date-picker v-model="date" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu = false">
+                      Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu.save(date)">
+                      OK
+                    </v-btn>
+                  </v-date-picker>
+                </v-menu>
               </v-flex>
 
-
-              <v-flex lg2 class="form-group mx-3">
+              <v-flex class="form-group " >
                 <label class="form-label">
                   <b>ROE Updated Manually </b>
                   <span class="required">*</span>
@@ -139,11 +167,12 @@
                 ></v-select>
               </v-flex>
             </v-layout>
+
           </v-form>
         </div>
       </div>
     </template>
-
+    <!-- ------------------------------------Invoice Details--------------------- -->
     <template>
       <div class="container1">
         <div class="header" @click="show2 = !show2">
@@ -162,7 +191,6 @@
             <b>Add Invoice Details</b>(At Least One Row Is Mandatory)
           </div>
 
-          <!-- ------------------------------------Invoice Details--------------------- -->
           <v-card elevation="2" class="ma-3" flat>
             <v-data-table
               elevation="2"
@@ -191,7 +219,7 @@
                   outlined
                   dense
                   class="mt-6"
-                  style="align-text: center;"
+                  style="align-text: center"
                 ></v-text-field
                 >{{ item.text }}
               </template>
@@ -224,22 +252,22 @@
             </v-data-table>
           </v-card>
 
-          <div class="add-row-icon">
-            <span><v-icon class="white green--text"> mdi-plus </v-icon></span>
-            <span class="white green--text"> Add Row </span>
+          <div class="add-row-container">
+            <span><v-icon color="#23B1A9"> mdi-plus </v-icon></span>
+            <span> Add Row </span>
           </div>
 
           <!-- -------------------------total invoice amount---------------------------- -->
           <v-form>
-            <v-layout wrap class="form-group-container">
+            <v-layout wrap class="form-group-container" style="width:290px">
               <!-- ------------------------------ROW -1 ------------------------------ -->
-              <v-flex lg2 class="form-group">
-                <label class="form-label "  >
+              <v-flex  class="form-group">
+                <label class="form-label">
                   <b>Total Invoice Amount</b>
                 </label>
                 <v-text-field
                   class="input"
-                label="Enter..."
+                  label="Enter..."
                   solo
                   dense
                   outlined
@@ -328,7 +356,7 @@
               </v-flex>
             </v-layout>
 
-            <v-layout wrap class="form-group-container">
+            <v-layout wrap class="form-group-container" style="width:1600px">
               <v-flex class="form-group lg2">
                 <label class="form-label"><b>Net Payable</b> </label>
                 <v-text-field
@@ -358,30 +386,18 @@
             >mdi-plus-box</v-icon
           >
         </div>
-  
+
         <div v-show="show4">
           <v-form>
-            <v-layout wrap class="pt-4 form-group-container">
-              <v-flex
-                lg2
-                class="form-group my-2"
-                style="border: 1px solid grey"
-              >
-                <v-card>
-                  <v-checkbox
-                    class="input"
-                    label="Non Payable Expense"
-                    solo
-                    dense
-                    outlined
-                  >
-                  </v-checkbox>
-                </v-card>
-              </v-flex>
+            <v-layout wrap class="mx-3 pt-4">
+              <!-- ------------------------------ROW -1 ------------------------------ -->
+              <v-card class="npe-checkbox rounded-0" outlined elevation="1">
+                <v-checkbox label="Non Payable Expense"> </v-checkbox>
+              </v-card>
             </v-layout>
           </v-form>
           <!-- ------------------------------------NON payable Expense table--------------------- -->
-          <v-card elevation="2" class="mx-2 mt-5" flat >
+          <v-card elevation="2" class="mx-2 mt-5" flat>
             <v-data-table
               elevation="2"
               id="table"
@@ -437,9 +453,9 @@
               </template>
             </v-data-table>
           </v-card>
-          <div class="add-row-icon">
-            <span><v-icon class="white green--text"> mdi-plus </v-icon></span>
-            <span class="white green--text"> Add Row </span>
+          <div class="add-row-container">
+            <span><v-icon color="#23B1A9"> mdi-plus </v-icon></span>
+            <span> Add Row </span>
           </div>
 
           <!-- -------------------------total non payable amount---------------------------- -->
@@ -447,7 +463,7 @@
             <v-layout wrap class="pt-4 form-group-container">
               <!-- ------------------------------ROW -1 ------------------------------ -->
               <v-flex lg2 class="form-group ma-2">
-                <label class="form-label ">
+                <label class="form-label">
                   <b>Total Non-Payable Amount</b>
                 </label>
                 <v-text-field
@@ -588,13 +604,19 @@ td {
   height: 30px;
   width: 400px;
 }
-.add-row-icon {
+.add-row-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px;
+  color: #23b1a9;
 }
-
-
-
+.npe-checkbox {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 266px;
+  padding-left: 10px;
+  border: 1px solid #c1c8cc;
+}
 </style>

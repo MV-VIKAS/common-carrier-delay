@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <div class="d-flex lighten-3 pt-2 claimHeader">
+      <div class="claimHeader lighten-3 ">
         <p class="claimNumber align-center mt-3 mx-5">
           Claim Number - 4340002739
         </p>
         <v-divider vertical class="my-2"></v-divider>
-        <p class="newClaim darken-3 mt-3 mx-5">NEW CLAIM</p>
+        <p class="newClaim mt-3 mx-5">
+          FEATURE CLAIM
+        </p>
         <v-spacer></v-spacer>
-        <p class="viewDetails mt-3 mr-5">View Details</p>
+        <p class="viewDetails  mt-3 mr-5"><b>View Details</b></p>
       </div>
     </div>
     <div class="mt-3">
@@ -46,9 +48,34 @@
         :items="items"
         :headers="headers"
       >
-        <template v-slot:[`item.action`]="{ item }">
-          <v-icon small class="black--text">mdi-dots-vertical</v-icon
-          >{{ item.text }}
+        <template v-slot:[`item.action`]="{}">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon flat slot="activator" v-bind="attrs" v-on="on" left
+                >mdi-dots-vertical</v-icon
+              >
+            </template>
+            <v-list  v-for="link in links"
+                :key="link.text"
+              style="border:1px solid #C1C8CC;" >
+              <v-list-item
+                style="min-height: 20px; width:130px;"
+              >
+                <template
+                  v-if="link.text === 'Modify'"
+                >
+                  <v-icon class="pr-3">mdi-{{ link.icon }}</v-icon>
+                  <v-list-item-title class="teal--text">{{
+                    link.text
+                  }}</v-list-item-title>
+                </template>
+                <template v-else>
+                  <v-icon class="pr-3">mdi-{{ link.icon }}</v-icon>
+                  <v-list-item-title>{{ link.text }}</v-list-item-title>
+                </template>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </template>
       </v-data-table>
     </div>
@@ -59,6 +86,10 @@
 export default {
   data() {
     return {
+      links: [
+        { icon: "eye", text: "View" },
+        { icon: "pencil-outline", text: "Modify" },
+      ],
       items: [
         {
           Settlement: "Standard",
@@ -100,25 +131,25 @@ export default {
           value: "action",
           class: "white--text",
           style: "",
-          width: 50,
+          width: 110,
         },
         {
           text: "Settlement Type",
           value: "Settlement",
           class: "white--text",
-          width: 150,
+          width: 190,
         },
         {
           text: "Claim Payment Type",
           value: "Claim",
           class: "white--text",
-          width: 200,
+          width: 190,
         },
         {
           text: "Transaction Type",
           value: "Transaction",
           class: "white--text",
-          width: 150,
+          width: 165,
         },
         {
           text: "Disability Amount",
@@ -130,19 +161,19 @@ export default {
           text: "Deductible Amount",
           value: "Deductible",
           class: "white--text",
-          width: 150,
+          width: 157,
         },
         {
           text: "Time Deductible (In Hours)",
           value: "Time",
           class: "white--text",
-          width: 200,
+          width: 210,
         },
         {
           text: "Copay%",
           value: "Copay",
           class: "white--text",
-          width: 50,
+          width: 100,
           border: 1,
         },
         {
@@ -193,4 +224,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#listContainer {
+  width: 150px;
+  min-height: 15px;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="d-flex lighten-3 pt-2" style="background-color:#F7F7F7">
+      <div class="claimHeader lighten-3 ">
         <p class="claimNumber align-center mt-3 mx-5">
           Claim Number - 4340002739
         </p>
@@ -10,7 +10,7 @@
           FEATURE CLAIM
         </p>
         <v-spacer></v-spacer>
-        <p class="viewDetails text-caption mt-3 mr-5"><b>View Details</b></p>
+        <p class="viewDetails  mt-3 mr-5"><b>View Details</b></p>
       </div>
       <div class="mt-3">
         <router-link to="/" style="text-decoration: none">

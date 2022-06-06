@@ -15,6 +15,7 @@
     height: 13px;
     text-transform: capitalize;
     font-weight: bold;
+    color: #4C4C4C;
 }
 .header-label-basic{
     width: 82px;
@@ -28,7 +29,10 @@
 }
 .claimHeader{
     background-color: #F7F7F7;
-    border:1px solid #EFEEF4
+    border:1px solid #EFEEF4;
+    display: flex;
+    align-items: center;
+    
 }
 .claimNumber{
     color:#10242B;
@@ -43,6 +47,8 @@
 .viewDetails{
     color:#23B1A9;
     font-size: 12px;
+    font-weight: 500;
+    height: 14px;
 }
 .pageHeader {
   color: #10242b;
@@ -61,6 +67,11 @@
     font-size: 16px;
     letter-spacing: 0;
     font-weight: bold;
+}
+/* dropdown */
+.container1 {
+  margin-bottom: 1px;
+  border: 0.1px solid #c1c8cc;
 }
 
 .header {
@@ -94,19 +105,16 @@ border-radius: 4px;
 .textLabel{
     font-size: 10px;
 }
-/* dropdown */
-.container1 {
-  margin-top: 1px;
-  border: 1px solid #c1c8cc;
-}
+
 
 /* input icons */
 .iconstyle {
-  border-right: 1px solid grey;
-  background-color:#F7F7F7;
+  border-right: 1px solid #c1c8cc;
+  background-color: #F7F7F7;
   height: 40px;
   width: 40px;
   margin-right: 10px;
+  margin-left: -12px;
 }
 
 .required{
