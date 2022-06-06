@@ -124,14 +124,13 @@ border-radius: 4px;
   height: 13px;
 }
 
+
 /* table */
 .v-data-table-header tr {
   background-color: #23b1a9;
 }
-.v-data-table-header tr th {
+table tr th ,
+table tr td{
   border: 1px solid #c1c8cc;
-}
-.v-data-table__wrapper table tbody tr td {
-  border-left: 1px solid #c1c8cc;
   height: 20px;
 }

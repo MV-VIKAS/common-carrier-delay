@@ -215,7 +215,7 @@
                 ></v-text-field>
               </v-flex>
             </v-layout >
-             <v-layout wrap class="pb-2 form-group-container" style="width:290px">
+             <v-layout wrap class="pb-2 form-group-container" style="width:265px">
              <v-flex class="form-group " >
                 <label class="form-label">
                   <b>Is This An Accident Case?</b></label
@@ -467,8 +467,8 @@
                 </v-text-field>
               </v-flex>
               </v-layout>
-               <v-layout wrap class="form-group-container">
-              <v-flex class="form-group ">
+               <v-layout wrap class="form-group-container" >
+              <v-flex class="form-group " style="width:230px">
                 <label class="form-label "> <b>Email ID</b></label>
                 <v-text-field
                   class="input"
@@ -483,7 +483,7 @@
                 </v-text-field>
               </v-flex>
 
-              <v-flex class="form-group ">
+              <v-flex class="form-group " style="width:230px">
                 <label class="form-label">
                   <b>MLC</b><span class="red--text">*</span></label
                 >
@@ -495,7 +495,7 @@
                   outlined
                 ></v-select>
               </v-flex>
-              <v-flex class="form-group ">
+              <v-flex class="form-group " style="width:230px">
                 <label class="form-label">
                   <b>MLC Number</b><span class="required">*</span></label
                 >
@@ -507,7 +507,7 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-              <v-flex class="mx-3" style="width: 515px">
+              <v-flex class="mx-3" style="width: 500px">
                 <label class="form-label">
                   <b>Accident Description</b
                   ><span class="required">*</span></label

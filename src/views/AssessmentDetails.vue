@@ -42,12 +42,13 @@
     <!-- Table Data -->
     <div>
       <v-data-table
-        id="table"
+      id="table"
         hide-default-footer
         disable-sort
         :items="items"
         :headers="headers"
       >
+      <!-- Action type -->
         <template v-slot:[`item.action`]="{}">
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">

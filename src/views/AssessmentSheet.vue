@@ -89,10 +89,10 @@
                   outlined
                 ></v-select>
               </v-flex>
-                   </v-layout>
-                   <!----------------------- ROW 2---------------- -->
-            <v-layout wrap class=" form-group-container" style="width:875px">
-              <v-flex  class="form-group">
+            </v-layout>
+            <!----------------------- ROW 2---------------- -->
+            <v-layout wrap class="form-group-container" style="width: 795px">
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>Rate Of Exchange </b>
                   <span class="required">*</span>
@@ -106,16 +106,15 @@
                   disabled
                 ></v-text-field>
               </v-flex>
-       
-              
-              <v-flex class="form-group "  >
+
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>Rate Of Exchange Date </b>
                   <span class="required">*</span>
                 </label>
                 <v-menu
-                  ref="menu"
-                  v-model="menu"
+                  ref="menu4"
+                  v-model="menu4"
                   :close-on-content-click="false"
                   :return-value.sync="date"
                   transition="scale-transition"
@@ -140,19 +139,23 @@
                       </template>
                     </v-text-field>
                   </template>
-                  <v-date-picker v-model="date" no-title scrollable>
+                  <v-date-picker v-model="date4" no-title scrollable>
                     <v-spacer></v-spacer>
-                    <v-btn text color="primary" @click="menu = false">
+                    <v-btn text color="primary" @click="menu4 = false">
                       Cancel
                     </v-btn>
-                    <v-btn text color="primary" @click="$refs.menu.save(date)">
+                    <v-btn
+                      text
+                      color="primary"
+                      @click="$refs.menu4.save(date4)"
+                    >
                       OK
                     </v-btn>
                   </v-date-picker>
                 </v-menu>
               </v-flex>
 
-              <v-flex class="form-group " >
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>ROE Updated Manually </b>
                   <span class="required">*</span>
@@ -167,7 +170,6 @@
                 ></v-select>
               </v-flex>
             </v-layout>
-
           </v-form>
         </div>
       </div>
@@ -259,9 +261,9 @@
 
           <!-- -------------------------total invoice amount---------------------------- -->
           <v-form>
-            <v-layout wrap class="form-group-container" style="width:290px">
+            <v-layout wrap class="form-group-container" style="width: 265px">
               <!-- ------------------------------ROW -1 ------------------------------ -->
-              <v-flex  class="form-group">
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>Total Invoice Amount</b>
                 </label>
@@ -356,7 +358,7 @@
               </v-flex>
             </v-layout>
 
-            <v-layout wrap class="form-group-container" style="width:1600px">
+            <v-layout wrap class="form-group-container" style="width: 1450px">
               <v-flex class="form-group lg2">
                 <label class="form-label"><b>Net Payable</b> </label>
                 <v-text-field
@@ -558,7 +560,6 @@ export default {
           value: "action",
           class: " white--text",
           width: 150,
-          align: "center",
         },
       ],
       item: [
