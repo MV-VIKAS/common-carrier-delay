@@ -91,8 +91,8 @@
               </v-flex>
             </v-layout>
             <!----------------------- ROW 2---------------- -->
-            <v-layout wrap class="form-group-container" style="width: 795px">
-              <v-flex class="form-group">
+            <v-layout wrap class="form-group-container" >
+              <v-flex class=" form-group" >
                 <label class="form-label">
                   <b>Rate Of Exchange </b>
                   <span class="required">*</span>
@@ -155,7 +155,7 @@
                 </v-menu>
               </v-flex>
 
-              <v-flex class="form-group">
+              <v-flex class="form-group" style="margin-right:535px">
                 <label class="form-label">
                   <b>ROE Updated Manually </b>
                   <span class="required">*</span>
@@ -358,8 +358,8 @@
               </v-flex>
             </v-layout>
 
-            <v-layout wrap class="form-group-container" style="width: 1450px">
-              <v-flex class="form-group lg2">
+            <v-layout wrap class="form-group-container" style="width: 266px">
+              <v-flex class="form-group">
                 <label class="form-label"><b>Net Payable</b> </label>
                 <v-text-field
                   class="input"
@@ -394,7 +394,7 @@
             <v-layout wrap class="mx-3 pt-4">
               <!-- ------------------------------ROW -1 ------------------------------ -->
               <v-card class="npe-checkbox rounded-0" outlined elevation="1">
-                <v-checkbox label="Non Payable Expense"> </v-checkbox>
+                <v-checkbox label="Non Payable Expense" > </v-checkbox>
               </v-card>
             </v-layout>
           </v-form>
@@ -464,7 +464,7 @@
           <v-form>
             <v-layout wrap class="pt-4 form-group-container">
               <!-- ------------------------------ROW -1 ------------------------------ -->
-              <v-flex lg2 class="form-group ma-2">
+              <v-flex lg2 class="form-group" >
                 <label class="form-label">
                   <b>Total Non-Payable Amount</b>
                 </label>
@@ -572,7 +572,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 /* table */
 #table-head {
   color: white;
@@ -616,7 +616,7 @@ td {
   display: flex;
   align-items: center;
   height: 40px;
-  width: 266px;
+  width: 242px;
   padding-left: 10px;
   border: 1px solid #c1c8cc;
 }
