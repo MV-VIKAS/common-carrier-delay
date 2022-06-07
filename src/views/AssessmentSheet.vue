@@ -91,8 +91,8 @@
               </v-flex>
             </v-layout>
             <!----------------------- ROW 2---------------- -->
-            <v-layout wrap class="form-group-container" >
-              <v-flex class=" form-group" >
+            <v-layout wrap class="form-group-container">
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>Rate Of Exchange </b>
                   <span class="required">*</span>
@@ -155,7 +155,7 @@
                 </v-menu>
               </v-flex>
 
-              <v-flex class="form-group" style="margin-right:535px">
+              <v-flex class="form-group" style="margin-right: 535px">
                 <label class="form-label">
                   <b>ROE Updated Manually </b>
                   <span class="required">*</span>
@@ -255,7 +255,9 @@
           </v-card>
 
           <div class="add-row-container">
-            <span><v-icon color="#23B1A9"> mdi-plus </v-icon></span>
+            <span class="mr-3"
+              ><v-icon color="#23B1A9"> mdi-plus </v-icon></span
+            >
             <span> Add Row </span>
           </div>
 
@@ -394,7 +396,7 @@
             <v-layout wrap class="mx-3 pt-4">
               <!-- ------------------------------ROW -1 ------------------------------ -->
               <v-card class="npe-checkbox rounded-0" outlined elevation="1">
-                <v-checkbox label="Non Payable Expense" > </v-checkbox>
+                <v-checkbox label="Non Payable Expense"> </v-checkbox>
               </v-card>
             </v-layout>
           </v-form>
@@ -456,7 +458,9 @@
             </v-data-table>
           </v-card>
           <div class="add-row-container">
-            <span><v-icon color="#23B1A9"> mdi-plus </v-icon></span>
+            <span class="mr-3"
+              ><v-icon color="#23B1A9"> mdi-plus </v-icon></span
+            >
             <span> Add Row </span>
           </div>
 
@@ -464,7 +468,7 @@
           <v-form>
             <v-layout wrap class="pt-4 form-group-container">
               <!-- ------------------------------ROW -1 ------------------------------ -->
-              <v-flex lg2 class="form-group" >
+              <v-flex lg2 class="form-group">
                 <label class="form-label">
                   <b>Total Non-Payable Amount</b>
                 </label>
@@ -525,41 +529,41 @@ export default {
           align: "center",
           value: "serialn",
           class: " white--text",
-          width: 100,
+          width: 130,
         },
         {
           text: "Invoice Number",
           value: "invoice",
           class: " white--text",
           align: "center",
-          width: 150,
+          width: 154.5,
         },
         {
           text: "Invoice Date",
           value: "invoicedate",
           class: " white--text",
-          width: 250,
+          width: 232.5,
           align: "center",
         },
         {
           text: "Invoice Details",
           value: "invoicedetails",
           class: " white--text",
-          width: 350,
+          width: 416.5,
           align: "center",
         },
         {
           text: "Invoice Amount",
           value: "invoiceamount",
           class: " white--text",
-          width: 150,
+          width: 180,
           align: "center",
         },
         {
           text: "Action",
           value: "action",
           class: " white--text",
-          width: 150,
+          width: 165.5,
         },
       ],
       item: [
@@ -572,7 +576,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 /* table */
 #table-head {
   color: white;
@@ -611,6 +615,7 @@ td {
   justify-content: center;
   margin: 20px;
   color: #23b1a9;
+  height: 19px;
 }
 .npe-checkbox {
   display: flex;

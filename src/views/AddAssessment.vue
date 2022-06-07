@@ -1,20 +1,18 @@
 <template>
   <div>
     <div>
-      <div class="claimHeader lighten-3 ">
+      <div class="claimHeader lighten-3">
         <p class="claimNumber align-center mt-3 mx-5">
           Claim Number - 4340002739
         </p>
         <v-divider vertical class="my-2"></v-divider>
-        <p class="newClaim mt-3 mx-5">
-          FEATURE CLAIM
-        </p>
+        <p class="newClaim mt-3 mx-5">FEATURE CLAIM</p>
         <v-spacer></v-spacer>
-        <p class="viewDetails  mt-3 mr-5"><b>View Details</b></p>
+        <p class="viewDetails mt-3 mr-5"><b>View Details</b></p>
       </div>
       <div class="mt-3">
         <router-link to="/" style="text-decoration: none">
-          <v-btn outlined id="notActiveBtn"  class=" pa-5" elevation="0"  >
+          <v-btn outlined id="notActiveBtn" class="pa-5" elevation="0">
             Claim Details</v-btn
           ></router-link
         >
@@ -33,11 +31,7 @@
       />
 
       <router-link to="/assessmentSheet" style="text-decoration: none"
-        ><v-btn
-          
-          class="AssessmentBtn white--text text-caption"
-            color="#1EBBD9"
-        >
+        ><v-btn class="AssessmentBtn white--text text-caption" color="#1EBBD9">
           <v-icon
             style="  position:relative
             top:0
@@ -63,5 +57,4 @@ export default {};
   width: 100%;
   margin-top: 100px;
 }
-
 </style>

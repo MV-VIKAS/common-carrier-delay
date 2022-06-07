@@ -153,7 +153,7 @@
                       class="form-control rounded-0"
                       placeholder="Enter..."
                       readonly
-                       solo
+                      solo
                       dense
                       outlined
                       v-bind="attrs"
@@ -217,10 +217,10 @@
                   </v-date-picker>
                 </v-menu>
               </v-flex>
-          <!-- actual time -->
+              <!-- actual time -->
               <v-flex class="form-group">
                 <label class="form-label"> <b>Actual Time</b> </label>
-               <v-menu
+                <v-menu
                   ref="menut2"
                   v-model="time3"
                   :close-on-content-click="false"
@@ -236,7 +236,7 @@
                       class="form-control rounded-0"
                       placeholder="Enter..."
                       readonly
-                       solo
+                      solo
                       dense
                       outlined
                       v-bind="attrs"
@@ -251,7 +251,7 @@
                     v-if="time3"
                     v-model="Actualtime"
                     full-width
-                     color="blue lighten-1"
+                    color="blue lighten-1"
                     @click:minute="$refs.menut2.save(Actualtime)"
                   ></v-time-picker>
                 </v-menu>
@@ -529,7 +529,7 @@
             </v-layout>
 
             <v-layout wrap class="form-group-container">
-              <v-flex class="form-group" >
+              <v-flex class="form-group">
                 <label class="form-label"> <b>Email ID</b></label>
                 <v-text-field
                   class="input"
@@ -544,7 +544,7 @@
                 </v-text-field>
               </v-flex>
 
-              <v-flex class="form-group" >
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>MLC</b><span class="red--text">*</span></label
                 >
@@ -556,7 +556,7 @@
                   outlined
                 ></v-select>
               </v-flex>
-              <v-flex class="form-group" >
+              <v-flex class="form-group">
                 <label class="form-label">
                   <b>MLC Number</b><span class="required">*</span></label
                 >
@@ -624,11 +624,9 @@ export default {
       date3: "",
       // time picker
       scheduleTime: null,
-      actualTime:null,
+      actualTime: null,
       time2: false,
-      time3:false,
-
-
+      time3: false,
     };
   },
 };
