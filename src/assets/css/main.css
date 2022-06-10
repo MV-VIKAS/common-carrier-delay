@@ -69,7 +69,7 @@
   font-weight: bold;
 }
 /* dropdown */
-.container1 {
+.containerSection {
   margin-bottom: 1px;
   border: 0.1px solid #c1c8cc;
 }
@@ -128,5 +128,6 @@
 table tr th,
 table tr td {
   border: 1px solid #c1c8cc;
-  height: 20px;
 }
+
+

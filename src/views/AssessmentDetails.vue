@@ -22,7 +22,7 @@
         ></router-link
       >
       <v-btn class="pa-5" elevation="0" id="activeBtn">Assessment Sheet</v-btn>
-      <v-divider class="mr-16"></v-divider>
+      <v-divider></v-divider>
     </div>
 
     <!-- Table Section-->
@@ -30,7 +30,7 @@
       <h2 class="pageHeader">Common Carrier Delay Assessment Sheets</h2>
       <v-spacer></v-spacer>
       <router-link to="/assessmentSheet" style="text-decoration: none">
-        <v-btn id="img" class="white--text text-caption" color="#1EBBD9"
+        <v-btn class="white--text text-caption" color="#1EBBD9"
           ><v-icon>mdi-plus-box-outline</v-icon>
           <v-divider vertical class="mx-3 grey lighten-5"></v-divider>
           Add Assessment</v-btn
@@ -40,7 +40,6 @@
     <!-- Table Data -->
     <div>
       <v-data-table
-        id="table"
         hide-default-footer
         disable-sort
         :items="items"
@@ -140,7 +139,7 @@ export default {
           text: "Claim Payment Type",
           value: "Claim",
           class: "white--text",
-          width: 171,
+          width: 181,
         },
         {
           text: "Transaction Type",

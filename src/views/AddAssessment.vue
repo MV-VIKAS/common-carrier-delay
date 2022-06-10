@@ -12,14 +12,14 @@
       </div>
       <div class="mt-3">
         <router-link to="/" style="text-decoration: none">
-          <v-btn outlined id="notActiveBtn" class="pa-5" elevation="0">
+          <v-btn  id="notActiveBtn" class="pa-5 mr-1 text-subtitle-2" elevation="0" >
             Claim Details</v-btn
           ></router-link
         >
-        <v-btn class="pa-5 ml-1 text-subtitle-2" id="activeBtn"
+        <v-btn class="pa-5 " id="activeBtn" 
           >Assessment Sheet</v-btn
         >
-        <v-divider class="mr-16"></v-divider>
+        <v-divider></v-divider>
       </div>
     </div>
     <div class="AssessmentSection">

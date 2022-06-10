@@ -26,14 +26,18 @@
 
     <!-- ---------------------basic details ---------------------------->
     <template>
-      <div class="container1">
-        <div class="header" @click="hide = !hide">
+      <div class="containerSection">
+        <div class="header" @click="toggleBasicDetails = !toggleBasicDetails">
           <span class="header-label-basic">Basic Details </span
           ><v-spacer></v-spacer>
-          <v-icon color="#ffffff" v-if="hide">mdi-plus-box</v-icon>
-          <v-icon color="#ffffff" v-if="!hide">mdi-minus-box</v-icon>
+          <v-icon color="#ffffff" v-if="toggleBasicDetails"
+            >mdi-plus-box</v-icon
+          >
+          <v-icon color="#ffffff" v-if="!toggleBasicDetails"
+            >mdi-minus-box</v-icon
+          >
         </div>
-        <template v-if="!hide">
+        <template v-if="toggleBasicDetails">
           <v-form>
             <v-layout wrap class="pt-4 form-group-container">
               <v-flex class="form-group">
@@ -104,7 +108,7 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                      v-model="date1"
+                      v-model="scheduleDateValue"
                       placeholder="DD/MM/YYYY"
                       class="form-control rounded-0"
                       readonly
@@ -119,7 +123,11 @@
                       </template>
                     </v-text-field>
                   </template>
-                  <v-date-picker v-model="date1" no-title scrollable>
+                  <v-date-picker
+                    v-model="scheduleDateValue"
+                    no-title
+                    scrollable
+                  >
                     <v-spacer></v-spacer>
                     <v-btn text color="primary" @click="menu1 = false">
                       Cancel
@@ -127,7 +135,7 @@
                     <v-btn
                       text
                       color="primary"
-                      @click="$refs.menu1.save(date1)"
+                      @click="$refs.menu1.save(scheduleDateValue)"
                     >
                       OK
                     </v-btn>
@@ -168,6 +176,8 @@
                     v-if="time2"
                     v-model="scheduleTime"
                     full-width
+                    no-title
+                   format="ampm"
                     color="blue lighten-1"
                     @click:minute="$refs.menut1.save(scheduleTime)"
                   ></v-time-picker>
@@ -187,7 +197,7 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                      v-model="date2"
+                      v-model="actualDateValue"
                       placeholder="DD/MM/YYYY"
                       class="form-control rounded-0"
                       readonly
@@ -202,7 +212,14 @@
                       </template>
                     </v-text-field>
                   </template>
-                  <v-date-picker v-model="date2" no-title scrollable>
+                  <v-date-picker
+                    v-model="actualDateValue"
+                    scrollable
+                    show-adjacent-months
+                    year-icon="mdi-calendar-blank"
+                    prev-icon="mdi-skip-previous"
+                    next-icon="mdi-skip-next"
+                  >
                     <v-spacer></v-spacer>
                     <v-btn text color="primary" @click="menu2 = false">
                       Cancel
@@ -210,7 +227,7 @@
                     <v-btn
                       text
                       color="primary"
-                      @click="$refs.menu2.save(date2)"
+                      @click="$refs.menu2.save(actualDateValue)"
                     >
                       OK
                     </v-btn>
@@ -270,13 +287,14 @@
             <v-layout
               wrap
               class="pb-2 form-group-container"
-              style="width: 265px"
+              
             >
-              <v-flex class="form-group">
+              <v-flex class="form-group" >
                 <label class="form-label">
                   <b>Is This An Accident Case?</b></label
                 >
                 <v-select
+                style="width: 274px"
                   class="input"
                   placeholder="Yes"
                   solo
@@ -292,18 +310,27 @@
 
     <!-- ----------------------------------Accident details----------------------------------- -->
     <template>
-      <div class="container1">
-        <div class="header" @click="hide1 = !hide1">
+      <div class="containerSection">
+        <div
+          class="header"
+          @click="toggleAccidentDetails = !toggleAccidentDetails"
+        >
           <span class="header-label-accident">Accident Details</span
           ><v-spacer></v-spacer>
-          <v-icon class="white--text" color="#ffffff" v-if="hide1"
+          <v-icon
+            class="white--text"
+            color="#ffffff"
+            v-if="toggleAccidentDetails"
             >mdi-plus-box</v-icon
           >
-          <v-icon class="white--text" color="#ffffff" v-if="!hide1"
+          <v-icon
+            class="white--text"
+            color="#ffffff"
+            v-if="!toggleAccidentDetails"
             >mdi-minus-box</v-icon
           >
         </div>
-        <div v-if="!hide1">
+        <div v-if="toggleAccidentDetails">
           <v-form>
             <v-layout wrap class="pt-4 form-group-container">
               <v-flex class="form-group">
@@ -390,7 +417,7 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                      v-model="date3"
+                      v-model="FirDateValue"
                       placeholder="DD/MM/YYYY"
                       class="form-control rounded-0"
                       readonly
@@ -405,7 +432,7 @@
                       </template>
                     </v-text-field>
                   </template>
-                  <v-date-picker v-model="date3" no-title scrollable>
+                  <v-date-picker v-model="FirDateValue" no-title scrollable>
                     <v-spacer></v-spacer>
                     <v-btn text color="primary" @click="menu3 = false">
                       Cancel
@@ -413,7 +440,7 @@
                     <v-btn
                       text
                       color="primary"
-                      @click="$refs.menu3.save(date3)"
+                      @click="$refs.menu3.save(FirDateValue)"
                     >
                       OK
                     </v-btn>
@@ -568,7 +595,7 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-              <v-flex class="mx-3" style="width: 500px">
+              <v-flex class="mx-3" style="width: 525px">
                 <label class="form-label">
                   <b>Accident Description</b
                   ><span class="required">*</span></label
@@ -617,11 +644,11 @@
 export default {
   data() {
     return {
-      hide1: false,
-      hide: false,
-      date1: "",
-      date2: "",
-      date3: "",
+      toggleBasicDetails: true,
+      toggleAccidentDetails: true,
+      scheduleDateValue: "",
+      actualDateValue: "",
+      FirDateValue: "",
       // time picker
       scheduleTime: null,
       actualTime: null,

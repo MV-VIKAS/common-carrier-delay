@@ -7,7 +7,7 @@
     </v-title>
     <!-- -------------------BASIC DETAILS-------------------------------- -->
     <template>
-      <div class="container1">
+      <div class="containerSection">
         <div class="header" @click="show1 = !show1">
           <div>Basic Details</div>
           <v-spacer></v-spacer>
@@ -155,7 +155,7 @@
                 </v-menu>
               </v-flex>
 
-              <v-flex class="form-group" style="margin-right: 535px">
+              <v-flex class="form-group" style="margin-right:592px">
                 <label class="form-label">
                   <b>ROE Updated Manually </b>
                   <span class="required">*</span>
@@ -176,7 +176,7 @@
     </template>
     <!-- ------------------------------------Invoice Details--------------------- -->
     <template>
-      <div class="container1">
+      <div class="containerSection">
         <div class="header" @click="show2 = !show2">
           <div>Invoice Details</div>
           <v-spacer></v-spacer>
@@ -196,9 +196,6 @@
           <v-card elevation="2" class="ma-3" flat>
             <v-data-table
               elevation="2"
-              id="tabl"
-              disable-filtering
-              disable-pagination
               disable-sort
               hide-default-footer
               :items="item"
@@ -209,7 +206,7 @@
                   label="1000"
                   outlined
                   dense
-                  class="mt-6"
+                  class="mt-3"
                   style="align-text: center"
                 ></v-text-field
                 >{{ item.text }}
@@ -220,7 +217,7 @@
                   label="1000"
                   outlined
                   dense
-                  class="mt-6"
+                  class="mt-3"
                   style="align-text: center"
                 ></v-text-field
                 >{{ item.text }}
@@ -231,7 +228,7 @@
                   label="1000"
                   outlined
                   dense
-                  class="mt-6"
+                  class="mt-3"
                   style="align-text: center"
                 ></v-text-field
                 >{{ item.text }}
@@ -242,7 +239,7 @@
                   label="1000"
                   outlined
                   dense
-                  class="mt-6"
+                  class="mt-3 "
                   style="align-text: center"
                 ></v-text-field
                 >{{ item.text }}
@@ -256,7 +253,7 @@
 
           <div class="add-row-container">
             <span class="mr-3"
-              ><v-icon color="#23B1A9"> mdi-plus </v-icon></span
+              ><v-icon color="#23B1A9" id="add-row-icon" > mdi-plus </v-icon></span
             >
             <span> Add Row </span>
           </div>
@@ -264,7 +261,6 @@
           <!-- -------------------------total invoice amount---------------------------- -->
           <v-form>
             <v-layout wrap class="form-group-container" style="width: 265px">
-              <!-- ------------------------------ROW -1 ------------------------------ -->
               <v-flex class="form-group">
                 <label class="form-label">
                   <b>Total Invoice Amount</b>
@@ -286,7 +282,7 @@
     </template>
     <!-- -----------------------------Amount Details--------------------------------------------- -->
     <template>
-      <div class="container1">
+      <div class="containerSection">
         <div class="header" @click="show3 = !show3">
           <div>Amount Details</div>
           <v-spacer></v-spacer>
@@ -300,6 +296,7 @@
 
         <div v-show="show3">
           <v-form>
+   <!-- ------------------------------ROW -1 ------------------------------ -->
             <v-layout wrap class="pt-4 form-group-container">
               <v-flex class="form-group">
                 <label class="form-label">
@@ -359,9 +356,9 @@
                 ></v-text-field>
               </v-flex>
             </v-layout>
-
-            <v-layout wrap class="form-group-container" style="width: 266px">
-              <v-flex class="form-group">
+<!-- ------------------------------ROW -2 ------------------------------ -->
+            <v-layout  wrap class="form-group-container" style="width: 290px" >
+              <v-flex class="form-group" >
                 <label class="form-label"><b>Net Payable</b> </label>
                 <v-text-field
                   class="input"
@@ -379,7 +376,7 @@
 
     <!-- -----------------------------Non- payable Expanses--------------------------------------------- -->
     <template>
-      <div class="container1">
+      <div class="containerSection">
         <div class="header" @click="show4 = !show4">
           <div>Non Payable Expenses</div>
           <v-spacer></v-spacer>
@@ -458,10 +455,10 @@
             </v-data-table>
           </v-card>
           <div class="add-row-container">
-            <span class="mr-3"
-              ><v-icon color="#23B1A9"> mdi-plus </v-icon></span
+            <span
+              ><v-icon color="#23B1A9" id="add-row-icon-nonPayable"> mdi-plus </v-icon></span
             >
-            <span> Add Row </span>
+            <span class="add-row-content"> Add Row </span>
           </div>
 
           <!-- -------------------------total non payable amount---------------------------- -->
@@ -519,10 +516,10 @@ export default {
   components: {},
   data() {
     return {
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
+      show1: true,
+      show2: true,
+      show3: true,
+      show4: true,
       headers: [
         {
           text: "Serial Number",
@@ -613,10 +610,14 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin-top: 20px;
   color: #23b1a9;
-  height: 19px;
 }
+#add-row-icon-invoice,
+#add-row-icon-nonPayable{
+  font-size: 12px;
+}
+
 .npe-checkbox {
   display: flex;
   align-items: center;
