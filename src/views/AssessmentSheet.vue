@@ -89,10 +89,7 @@
                   outlined
                 ></v-select>
               </v-flex>
-            </v-layout>
-            <!----------------------- ROW 2---------------- -->
-            <v-layout wrap class="form-group-container">
-              <v-flex class="form-group">
+               <v-flex class="form-group">
                 <label class="form-label">
                   <b>Rate Of Exchange </b>
                   <span class="required">*</span>
@@ -102,8 +99,9 @@
                   placeholder="Enter..."
                   solo
                   dense
-                  outlined
                   disabled
+                  background-color="#EDEDED"
+
                 ></v-text-field>
               </v-flex>
 
@@ -120,6 +118,7 @@
                   transition="scale-transition"
                   offset-y
                   min-width="auto"
+                  
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
@@ -133,6 +132,7 @@
                       dense
                       outlined
                       disabled
+                      background-color="#EDEDED"
                     >
                       <template v-slot:prepend-inner>
                         <v-icon class="iconstyle"> mdi-calendar </v-icon>
@@ -167,6 +167,7 @@
                   dense
                   outlined
                   disabled
+                  background-color="#EDEDED"
                 ></v-select>
               </v-flex>
             </v-layout>
@@ -272,6 +273,7 @@
                   dense
                   outlined
                   disabled
+                  background-color="#EDEDED"
                 >
                 </v-text-field>
               </v-flex>
@@ -296,7 +298,6 @@
 
         <div v-show="show3">
           <v-form>
-   <!-- ------------------------------ROW -1 ------------------------------ -->
             <v-layout wrap class="pt-4 form-group-container">
               <v-flex class="form-group">
                 <label class="form-label">
@@ -355,12 +356,10 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-            </v-layout>
-<!-- ------------------------------ROW -2 ------------------------------ -->
-            <v-layout  wrap class="form-group-container" style="width: 290px" >
-              <v-flex class="form-group" >
+               <v-flex class="form-group" >
                 <label class="form-label"><b>Net Payable</b> </label>
                 <v-text-field
+                style="width: 270px"
                   class="input"
                   placeholder="Enter..."
                   solo
@@ -368,6 +367,7 @@
                   outlined
                 ></v-text-field>
               </v-flex>
+           
             </v-layout>
           </v-form>
         </div>
@@ -476,6 +476,7 @@
                   dense
                   outlined
                   disabled
+                  background-color="#EDEDED"
                 >
                 </v-text-field>
               </v-flex>
@@ -626,4 +627,5 @@ td {
   padding-left: 10px;
   border: 1px solid #c1c8cc;
 }
+
 </style>

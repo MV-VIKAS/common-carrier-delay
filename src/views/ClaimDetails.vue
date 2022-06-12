@@ -31,10 +31,10 @@
           <span class="header-label-basic">Basic Details </span
           ><v-spacer></v-spacer>
           <v-icon color="#ffffff" v-if="toggleBasicDetails"
-            >mdi-plus-box</v-icon
+            >mdi-minus-box</v-icon
           >
           <v-icon color="#ffffff" v-if="!toggleBasicDetails"
-            >mdi-minus-box</v-icon
+            >mdi-plus-box</v-icon
           >
         </div>
         <template v-if="toggleBasicDetails">
@@ -321,13 +321,13 @@
             class="white--text"
             color="#ffffff"
             v-if="toggleAccidentDetails"
-            >mdi-plus-box</v-icon
+            >mdi-minus-box</v-icon
           >
           <v-icon
             class="white--text"
             color="#ffffff"
             v-if="!toggleAccidentDetails"
-            >mdi-minus-box</v-icon
+            >mdi-plus-box</v-icon
           >
         </div>
         <div v-if="toggleAccidentDetails">
@@ -399,9 +399,7 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-            </v-layout>
-
-            <v-layout wrap class="form-group-container">
+           
               <v-flex class="form-group">
                 <label class="form-label">
                   <b>FIR Date</b> <span class="required">*</span></label
@@ -496,9 +494,7 @@
                   outlined
                 ></v-text-field>
               </v-flex>
-            </v-layout>
-
-            <v-layout wrap class="form-group-container">
+           
               <v-flex class="form-group">
                 <label class="form-label"> <b>Pincode</b></label>
                 <v-text-field
@@ -553,10 +549,8 @@
                   </template>
                 </v-text-field>
               </v-flex>
-            </v-layout>
-
-            <v-layout wrap class="form-group-container">
-              <v-flex class="form-group">
+              <!--  -->
+               <v-flex class="form-group">
                 <label class="form-label"> <b>Email ID</b></label>
                 <v-text-field
                   class="input"
@@ -610,6 +604,8 @@
                 ></v-text-field>
               </v-flex>
             </v-layout>
+
+           
           </v-form>
         </div>
       </div>
