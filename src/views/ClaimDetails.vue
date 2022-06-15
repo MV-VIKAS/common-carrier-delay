@@ -1,14 +1,12 @@
 <template>
   <div>
-    <div>
-      <div class="lighten-3 claimHeader">
+      <div class="claimHeader">
         <p class="claimNumber mt-3 mx-5">Claim Number - 4340002739</p>
         <v-divider vertical class="my-2"></v-divider>
         <p class="newClaim mt-3 mx-5">NEW CLAIM</p>
         <v-spacer></v-spacer>
         <p class="viewDetails mt-3 mr-5"><b>View Details</b></p>
       </div>
-    </div>
     <div class="mt-3">
       <v-btn class="pa-5 mr-1 text-subtitle-2" id="activeBtn" elevation="0">
         Claim Details</v-btn
@@ -135,7 +133,7 @@
                     <v-btn
                       text
                       color="primary"
-                      @click="$refs.menu1.save(scheduleDateValue)"
+                      @click="$refs.menu.save(scheduleDateValue)"
                     >
                       OK
                     </v-btn>
@@ -645,6 +643,8 @@ export default {
       scheduleDateValue: "",
       actualDateValue: "",
       FirDateValue: "",
+      menu1: false,
+      menu2:false,
       // time picker
       scheduleTime: null,
       actualTime: null,
